@@ -1,0 +1,1 @@
+component_lib_examples_enabled (enabled example materials and components) bool false

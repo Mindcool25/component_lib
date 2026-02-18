@@ -1,11 +1,5 @@
-# Component Lib
-This library intends on providing an API to dynamically create a set of components based off of a given material.
-
-# Docs
-## Creating a material
-Materials are simply stored as a table of materials.
-As of right now, they have a name, description, and color as shown below
-```lua
+-- An example material
+-- Materials are contained in a table of tables
 local example_materials = {
     -- A material contains 3 things
     --- A name, used for the registration
@@ -17,10 +11,10 @@ local example_materials = {
         color = "#06b5c9",
     },
 }
-```
-## Creating a component
-Components are stored in a similar way as materials, but each needs a name, description, and an image to use when generating the items
-```lua
+
+-- You don't need to pass in a components table if you just want the defaults
+COMPLIB.generate_components(example_materials)
+
 local example_components = {
     -- Components are similar, you just need 3 things
     -- A name, used for registration (%s will be replaces with the material's name)
@@ -32,10 +26,5 @@ local example_components = {
         image = "component_lib_widget.png^[colorize:%s:100",
     }
 }
-```
 
-# TODO
-- [ ] Add node creation
-- [ ] Change mod name when being used as a library
-- [ ] Allow for the rest of craftitem things to be added
-- [ ] Better examples?
+COMPLIB.generate_components(example_materials, example_components)
