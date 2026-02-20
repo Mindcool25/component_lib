@@ -34,6 +34,13 @@ local example_components = {
 }
 ```
 
+## Generating components from a material
+Using the above material and component, you can generate all components for all material with the following:
+```lua
+COMPLIB.generate_components(example_materials, example_components)
+```
+
+
 # TODO
 - [ ] Add node creation
 - [ ] Change mod name when being used as a library
