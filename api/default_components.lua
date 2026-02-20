@@ -32,5 +32,4 @@ COMPLIB.components = {
         description = "%s Ingot",
         image = "component_lib_ingot.png^[colorize:%s:100",
     },
-
 }
