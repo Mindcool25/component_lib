@@ -26,10 +26,15 @@ local example_components = {
     -- A name, used for registration (%s will be replaces with the material's name)
     -- A description, used for registration (%s will be replaces with the material's description)
     -- An image, which works the same way as normal luanti textures
+    -- Extras table, which holds any extra values you want to add to the item definition
     widget = {
         name = "%s_widget",
         description = "%s Widget",
         image = "component_lib_widget.png^[colorize:%s:100",
+        extras = {
+            groups = { hard = 1 },
+            stack_max = 16,
+        },
     }
 }
 ```
@@ -44,5 +49,5 @@ COMPLIB.generate_components(example_materials, example_components)
 # TODO
 - [ ] Add node creation
 - [ ] Change mod name when being used as a library
-- [ ] Allow for the rest of craftitem things to be added
+- [x] Allow for the rest of craftitem things to be added
 - [ ] Better examples?

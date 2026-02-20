@@ -6,6 +6,10 @@ COMPLIB.components = {
         name = "%s_wire_spool", -- material name ..  _wire_spool
         description = "%s Wire Spool", -- Material description .. Wire Spool
         image = "component_lib_spool.png^(component_lib_wire_on_spool.png^[colorize:%s:100)", -- %s here will will be a color
+        -- You can add extra things to the item definition
+        extras = {
+            groups = {hard = 1}
+        },
     },
     strip = {
         name = "%s_strip",
