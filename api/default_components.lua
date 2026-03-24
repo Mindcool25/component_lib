@@ -3,12 +3,23 @@ COMPLIB.components = {
     -- TODO: maybe custom texture generation code?
     -- TODO: also maybe some way to add general things
     small_wire = {
+        type = "item", -- Defaults to item, set to node if you want a node.
         name = "%s_wire_spool", -- material name ..  _wire_spool
         description = "%s Wire Spool", -- Material description .. Wire Spool
         image = "component_lib_spool.png^(component_lib_wire_on_spool.png^[colorize:%s:100)", -- %s here will will be a color
         -- You can add extra things to the item definition
         extras = {
             groups = {hard = 1}
+        },
+    },
+    block = {
+        -- You can also generate nodes, just set type to node.
+        type = "node",
+        name = "%s_block",
+        description = "%s Block",
+        image = "component_lib_block.png^[colorize:%s:100",
+        extras = {
+            groups = {cracky=3, stone=1, oddly_breakable_by_hand=3}
         },
     },
     strip = {
