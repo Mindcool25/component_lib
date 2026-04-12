@@ -4,12 +4,23 @@ local example_materials = {
     -- A material contains 3 things
     --- A name, used for the registration
     --- A description, used for the display name of the item
-    --- A color, used when colorizing the image
+    --- A color, which is generally either a colorize or multiply, but can be whatever
+    --- texture modifier you want.
     cobalt_mat = {
         name = "cobalt",
         description = "Cobalt",
-        color = "#06b5c9",
+        color = "^[colorize:#06b5c9:100",
     },
+
+    unobtainium_mat = {
+        name = "unobtainium",
+        description = "Unobtainium",
+        color = "^[multiply:#aa1231",
+        -- The image type allows you to insert a string before the .png of a texture
+        -- Useful if you want a warm or cold base texture for a given material
+        -- Optional, defaults to normal file name (in the case of the example base components, neutral)
+        image_type = "_warm",
+    }
 }
 
 -- You don't need to pass in a components table if you just want the defaults
@@ -20,10 +31,12 @@ local example_components = {
     -- A name, used for registration (%s will be replaces with the material's name)
     -- A description, used for registration (%s will be replaces with the material's description)
     -- An image, which works the same way as normal luanti textures
+    -- This image *must* have two string replacements. One for image type, and one for the texture
+    -- modification
     widget = {
         name = "%s_widget",
         description = "%s Widget",
-        image = "component_lib_widget.png^[colorize:%s:100",
+        image = "component_lib_widget%s.png%s",
     }
 }
 

@@ -6,45 +6,53 @@ COMPLIB.components = {
         type = "item", -- Defaults to item, set to node if you want a node.
         name = "%s_wire_spool", -- material name ..  _wire_spool
         description = "%s Wire Spool", -- Material description .. Wire Spool
-        image = "component_lib_spool.png^(component_lib_wire_on_spool.png^[colorize:%s:100)", -- %s here will will be a color
+        -- The first %s is used for if you want a different base image defined by a material
+        -- The second is for colorizing or modifying the texture.
+        image = "component_lib_spool.png^(component_lib_wire_on_spool%s.png%s)",
         -- You can add extra things to the item definition
         extras = {
             groups = {hard = 1}
         },
     },
+
     block = {
         -- You can also generate nodes, just set type to node.
         type = "node",
         name = "%s_block",
         description = "%s Block",
-        image = "component_lib_block.png^[colorize:%s:100",
+        image = "component_lib_block%s.png%s",
         extras = {
             groups = {cracky=3, stone=1, oddly_breakable_by_hand=3}
         },
     },
+
     strip = {
         name = "%s_strip",
         description = "%s Strip",
-        image = "component_lib_strip.png^[colorize:%s:100",
+        image = "component_lib_strip%s.png%s",
     },
+
     chainlink = {
         name = "%s_chainlink",
         description = "%s Chainlinks",
-        image = "component_lib_chainlink.png^[colorize:%s:100",
+        image = "component_lib_chainlink%s.png%s",
     },
+
     sheet = {
         name = "%s_sheet",
         description = "%s Sheet",
-        image = "component_lib_sheet.png^[colorize:%s:100",
+        image = "component_lib_sheet%s.png%s",
     },
+
     gear = {
         name = "%s_gear",
         description = "%s Gear",
-        image = "component_lib_gear.png^[colorize:%s:100",
+        image = "component_lib_gear%s.png%s",
     },
+
     ingot = {
         name = "%s_ingot",
         description = "%s Ingot",
-        image = "component_lib_ingot.png^[colorize:%s:100",
+        image = "component_lib_ingot%s.png%s",
     },
 }
