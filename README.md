@@ -6,17 +6,16 @@ This library intends on providing an API to dynamically create a set of componen
 Materials are simply stored as a table of materials.
 As of right now, they have a name, description, and color as shown below
 ```lua
-local example_materials = {
     -- A material contains 3 things
     --- A name, used for the registration
     --- A description, used for the display name of the item
-    --- A color, used when colorizing the image
+    --- A color, which is generally either a colorize or multiply, but can be whatever
+    --- texture modifier you want.
     cobalt_mat = {
         name = "cobalt",
         description = "Cobalt",
-        color = "#06b5c9",
+        color = "^[colorize:#06b5c9:100",
     },
-}
 ```
 ## Creating a component
 Components are stored in a similar way as materials, but each needs a name, description, and an image to use when generating the items
@@ -26,15 +25,12 @@ local example_components = {
     -- A name, used for registration (%s will be replaces with the material's name)
     -- A description, used for registration (%s will be replaces with the material's description)
     -- An image, which works the same way as normal luanti textures
-    -- Extras table, which holds any extra values you want to add to the item definition
+    -- This image *must* have two string replacements. One for image type, and one for the texture
+    -- modification
     widget = {
         name = "%s_widget",
         description = "%s Widget",
-        image = "component_lib_widget.png^[colorize:%s:100",
-        extras = {
-            groups = { hard = 1 },
-            stack_max = 16,
-        },
+        image = "component_lib_widget%s.png%s",
     }
 }
 ```
@@ -47,7 +43,6 @@ COMPLIB.generate_components(example_materials, example_components)
 
 
 # TODO
-- [ ] Add node creation
-- [ ] Change mod name when being used as a library
-- [x] Allow for the rest of craftitem things to be added
+- [X] Add node creation
+- [X] Allow for the rest of craftitem things to be added
 - [ ] Better examples?
