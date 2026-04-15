@@ -1,4 +1,7 @@
-COMPLIB = {}
+COMPLIB = {
+    VERSION = "000005",
+    modpath = core.get_modpath "component_lib",
+}
 
 local default_path = core.get_modpath("component_lib")
 
