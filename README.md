@@ -46,3 +46,4 @@ COMPLIB.generate_components(example_materials, example_components)
 - [X] Add node creation
 - [X] Allow for the rest of craftitem things to be added
 - [ ] Better examples?
+- [ ] Allow adding existing items to a material's generated components
