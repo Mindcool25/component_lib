@@ -55,4 +55,10 @@ COMPLIB.components = {
         description = "%s Ingot",
         image = "component_lib_ingot%s.png%s",
     },
+
+    plate = {
+        name = "%s_plate",
+        description = "%s Plate",
+        image = "component_lib_plate%s.png%s",
+    },
 }

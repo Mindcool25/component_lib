@@ -1,5 +1,5 @@
 COMPLIB = {
-    VERSION = "000005",
+    VERSION = "000006",
     modpath = core.get_modpath "component_lib",
 }
 
