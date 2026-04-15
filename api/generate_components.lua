@@ -36,21 +36,36 @@ function COMPLIB.generate_item(material, component)
     core.register_craftitem(item_name, item_def)
 end
 
+function COMPLIB.table_has_value(tab, val)
+    for _, v in ipairs(tab) do
+        if v == val then
+            return true
+        end
+    end
+    return false
+end
 
 function COMPLIB.generate_components(materials, components)
     if not components then
         components = COMPLIB.components
     end
     for _mk, mat in pairs(materials) do
-        for _k, comp in pairs(components) do
-            -- Check if component is an item or a node, generate accordingly
-            if not comp.type or comp.type == "item" then
-                -- core.register_craftitem("component_lib:" .. string.format(comp.name, mat.name), item_def)
-                COMPLIB.generate_item(mat, comp)
-            elseif comp.type == "node" then
-                COMPLIB.generate_node(mat, comp)
+        -- If nothing has been generated yet, set it to an empty array
+        if not mat.generated then
+            mat.generated = {}
+        end
+        for k, comp in pairs(components) do
+            -- First check if the given material needs the component generated
+            if not mat.components or COMPLIB.table_has_value(mat.components, k) then
+                -- Add the generated component to the generated array in the material
+                table.insert(mat.generated, k)
+                -- Check if component is an item or a node, generate accordingly
+                if not comp.type or comp.type == "item" then
+                    COMPLIB.generate_item(mat, comp)
+                elseif comp.type == "node" then
+                    COMPLIB.generate_node(mat, comp)
+                end
             end
-
         end
     end
 end

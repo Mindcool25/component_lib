@@ -20,6 +20,8 @@ local example_materials = {
         -- Useful if you want a warm or cold base texture for a given material
         -- Optional, defaults to normal file name (in the case of the example base components, neutral)
         image_type = "_warm",
+        -- You can specify exactly what components you want to generate, all others will be skipped.
+        components = {"widget", "ingot", "block", "strip", "plate"}
     }
 }
 
